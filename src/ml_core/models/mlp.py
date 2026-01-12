@@ -17,9 +17,23 @@ class MLP(nn.Module):
         # TODO: Build the MLP architecture
         # If you are up to the task, explore other architectures or model types
         # Hint: Flatten -> [Linear -> ReLU -> Dropout] * N_layers -> Linear
+        ######### GOT HELP FROM GENAI HERE#########
+        in_features = 1
+        for dim in input_shape:
+            in_features *= dim
         
-        pass
+        layers = []
+        for hidden in hidden_units:
+            layers.append(nn.Linear(in_features, hidden))
+            layers.append(nn.ReLU())
+            layers.append(nn.Dropout(dropout_rate))
+            in_features = hidden
+            
+        ######### GOT HELP FROM GENAI UNTIL HERE#########
+        layers.append(nn.Linear(in_features, num_classes))
+        
+        self.model = nn.Sequential(*layers)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # TODO: Implement forward pass
-        pass
+        return self.model(x.flatten(start_dim=1))

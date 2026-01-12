@@ -48,9 +48,12 @@ class PCAMDataset(Dataset):
         # TODO: Implement data retrieval
         # 1. Read data at idx
         x_data = self.x_data[idx]
-        y_data = int(self.y_data[idx])        
-        
+        y_data = int(self.y_data[idx])
+       
+
         # 2. Convert to uint8 (for PIL compatibility if using transforms)
+        x_data = np.nan_to_num(x_data, nan=0.0)  
+        x_data = np.clip(x_data, 0, 1)     
         x_uint8 = (x_data * 255).astype(np.uint8)
 
         # 3. Apply transforms if they exist

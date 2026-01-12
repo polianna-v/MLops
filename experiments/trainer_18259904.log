@@ -1,0 +1,28 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"Python/3.11"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "Python/3.11"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"CUDA/12.1"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "CUDA/12.1"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+usage: train.py [-h] --config CONFIG
+train.py: error: the following arguments are required: --config
+srun: error: gcn9: task 0: Exited with exit code 2
+srun: Terminating StepId=18259904.0
